@@ -54,13 +54,32 @@ Latency distribution
 
 Running Locally
 
-python -m venv venv
-source venv/bin/activate # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload
+1. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   # Linux/macOS:
+   source venv/bin/activate
+   # Windows (cmd):
+   venv\Scripts\activate
+   # Windows (PowerShell):
+   .\venv\Scripts\Activate.ps1
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Start the server:
+   ```bash
+   uvicorn app.main:app --reload
+   ```
+   If `uvicorn` is not on your PATH (e.g. venv not activated), use:
+   ```bash
+   python -m uvicorn app.main:app --reload
+   ```
 
-Open API docs at:
-http://127.0.0.1:8000/docs
+4. Open API docs at: **http://127.0.0.1:8000/docs**
+
+   To run the prompt validator, call **POST /validate** with a JSON body like `{"prompt": "your text here"}` (or use the "Try it out" button in the docs). Health check: **http://127.0.0.1:8000/health**
 
 Environment Variables
 

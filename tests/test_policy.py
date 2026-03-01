@@ -17,7 +17,7 @@ from app.core.validator import validate_prompt
 
 
 def _load_golden_prompts():
-    path = Path(__file__).parent / "golden_prompts.py"
+    path = Path(__file__).parent / "golden_prompts.json"
     with open(path, encoding="utf-8") as f:
         return json.loads(f.read())
 

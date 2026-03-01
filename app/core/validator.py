@@ -143,6 +143,7 @@ def _fail_safe_response(trace_id: str, error: Exception) -> PromptResponse:
         recommendation="BLOCK_NEEDS_USER_FIX",
         final_message=message,
         rewritten_prompt=None,
+        error_code=code,
     )
 
 

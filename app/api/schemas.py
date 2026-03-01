@@ -48,3 +48,5 @@ class PromptResponse(BaseModel):
     final_message: str
     rewritten_prompt: Optional[str] = None
     confidence: Optional[float] = Field(None, ge=0.0, le=1.0)
+    # Set only when fail-safe is used; helps debug (e.g. bad_config, timeout, upstream_error, parse_error).
+    error_code: Optional[str] = Field(None, description="Present when validation failed and fail-safe block was returned.")
